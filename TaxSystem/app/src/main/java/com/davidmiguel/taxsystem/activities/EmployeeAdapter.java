@@ -9,6 +9,8 @@ import android.widget.TextView;
 import com.davidmiguel.taxsystem.R;
 import com.davidmiguel.taxsystem.entities.Employee;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +39,24 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
         return employees == null ? 0 : employees.size();
     }
 
+    /**
+     * When a supermarket is removed, delete it from database.
+     */
+    public void onItemDismiss(int position) {
+        employees.get(position).delete();
+        employees.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    /**
+     * When a supermarket is moved, save position.
+     */
+    public void onItemMove(int fromPosition, int toPosition) {
+        Employee prev = employees.remove(fromPosition);
+        employees.add(toPosition > fromPosition ? toPosition - 1 : toPosition, prev);
+        notifyItemMoved(fromPosition, toPosition);
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private EmployeeClickListener listener;
         private TextView firstLetter;
@@ -62,7 +82,8 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
             name.setText(employee.getName());
             job.setText(employee.getJob());
             taxCategory.setText(employee.getCategory().toString());
-            tax.setText(String.format("%d€", employee.getTax()));
+            NumberFormat nf = new DecimalFormat("#,###,###€");
+            tax.setText(nf.format(employee.getTax()));
         }
 
         @Override

@@ -1,19 +1,26 @@
 package com.davidmiguel.taxsystem.entities;
 
 public enum TaxCategory {
-    CAT1("Free"),
-    CAT2("10%"),
-    CAT3("22%"),
-    CAT4("40%");
+    CAT1(0),
+    CAT2(10),
+    CAT3(22),
+    CAT4(40);
 
-    private final String description;
+    private final int tax;
 
-    TaxCategory(String description) {
-        this.description = description;
+    TaxCategory(int tax) {
+        this.tax = tax;
+    }
+
+    public int getTax(){
+        return this.tax;
     }
 
     @Override
     public String toString() {
-        return this.description;
+        if(this.tax == 0){
+            return "Free";
+        }
+        return this.tax + "%";
     }
 }

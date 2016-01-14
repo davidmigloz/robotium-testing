@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">TaxSystem</string>
     <string name="action_settings">Settings</string>
+    <string name="add_employee">Add Employee</string>
+    <string name="name">Name</string>
+    <string name="job">Job</string>
+    <string name="salary">Salary</string>
 </resources>
