@@ -15,13 +15,13 @@ import com.davidmiguel.taxsystem.entities.Employee;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements EmployeeClickListener {
+public class EmployeesList extends AppCompatActivity implements EmployeeClickListener {
     private EmployeeAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_employees_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

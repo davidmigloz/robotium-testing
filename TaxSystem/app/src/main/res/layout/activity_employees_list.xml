@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.davidmiguel.taxsystem.activities.MainActivity">
+    tools:context=".activities.EmployeesList">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_main"/>
+    <include layout="@layout/content_employees_list"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

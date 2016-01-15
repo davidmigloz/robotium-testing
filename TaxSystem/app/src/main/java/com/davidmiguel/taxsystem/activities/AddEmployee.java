@@ -46,7 +46,7 @@ public class AddEmployee extends AppCompatActivity {
             // Redirect to main activity
             Toast.makeText(getApplicationContext(),
                     "New employee created!", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, EmployeesList.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         } else{
