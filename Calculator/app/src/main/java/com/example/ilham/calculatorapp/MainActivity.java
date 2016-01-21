@@ -2,14 +2,11 @@ package com.example.ilham.calculatorapp;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.security.PrivateKey;
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
     private Button btnAdd, btnSub, btnMult, btnDiv;
