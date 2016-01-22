@@ -2,6 +2,8 @@
 
 Robotium is an open-source test framework for writing automatic Gray-Box testing cases for Android applications.
 
+### Resources:
+
 - **[Slides](https://docs.google.com/presentation/d/1PIk20UxrxhWRqOVUF0bdE4CupmAD4ZSW2GK8t9D2ddc/edit?usp=sharing)**
 - **[Robotium tutorial](https://docs.google.com/document/d/1sIN5DE9VzEJ5RL-pg-zDQlU0yFkUBLBTxGEthOURCLw/edit?usp=sharing)**
 
