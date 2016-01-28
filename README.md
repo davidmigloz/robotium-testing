@@ -31,7 +31,7 @@ Design a system to work out the tax to be paid by an employee:
 2. Install Robotium Recorder.
 3. Import project: [Tax System](https://github.com/davidmigloz/robotium-testing/releases/download/v1/TaxSystem.zip).
 4. Create following test cases:
-  - AddEmployeeTest` (white-box)
+  - `AddEmployeeTest` (white-box)
   - `AddEmployeeTest` (black-box)
   - `RemoveEmployeeTest` (with Robotium Recorder)
   - `HelpTest` (web view that loads [Help](http://davidmiguel.com/proyectos/robotium/taxsystem/) web site)
