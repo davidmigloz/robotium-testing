@@ -66,7 +66,7 @@ We have created a step-by-step tutorial covering the following topics:
 
 - [Robotium](https://github.com/robotiumtech/robotium)
 - [Robotium Recorder](http://robotium.com/)
-- [Robotium Java Doc](Robotium Solo API Java Doc)
+- [Robotium Java Doc](http://recorder.robotium.com/javadoc/)
 
 ### Team
 
