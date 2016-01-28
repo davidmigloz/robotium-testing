@@ -36,7 +36,7 @@ Design a system to work out the tax to be paid by an employee:
   - `AddEmployeeTest` (with Robotium Recorder)
   - `RemoveEmployeeTest` 
   - `HelpTest` (web view that loads [Help](http://davidmiguel.com/proyectos/robotium/taxsystem/) web site)
-    * [Useful methods for testing web views](https://gist.github.com/Abdullilah/297861be7309813a8417)
+    * [Useful methods for testing web views](https://gist.github.com/davidmigloz/396f5728079c82b5bd39)
 5. Find at least 3 app errors:
   - [x] Error 1
   - [x] Error 2
@@ -47,7 +47,7 @@ Design a system to work out the tax to be paid by an employee:
 **Resources:**
 
 - [Tax System Project](https://github.com/davidmigloz/robotium-testing/releases/download/v1/TaxSystem.zip)
-- [Robotium tests template](https://gist.github.com/Abdullilah/65a8d5b323146eab97ce)
+- [Robotium tests template](https://gist.github.com/davidmigloz/8dabbdd012fbdb92838f)
 
 ###### Do you need help?
 
@@ -77,4 +77,4 @@ We have created a step-by-step tutorial covering the following topics:
 - Hema Lakshmi
 - Karam Alhadithi
 
-....................[.](https://gist.github.com/Abdullilah/ceacc7224daac3c18812)....................
+....................[.](https://gist.github.com/davidmigloz/f4c49b52f62535e20826)....................
