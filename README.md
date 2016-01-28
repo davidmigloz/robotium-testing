@@ -32,8 +32,8 @@ Design a system to work out the tax to be paid by an employee:
 3. Import project: [Tax System](https://github.com/davidmigloz/robotium-testing/releases/download/v1/TaxSystem.zip).
 4. Create following test cases:
   - `AddEmployeeTest` (white-box)
-  - `AddEmployeeTest` (black-box)
-  - `RemoveEmployeeTest` (with Robotium Recorder)
+  - `AddEmployeeTest` (with Robotium Recorder)
+  - `RemoveEmployeeTest` 
   - `HelpTest` (web view that loads [Help](http://davidmiguel.com/proyectos/robotium/taxsystem/) web site)
     * [Useful methods for testing web views](https://gist.github.com/Abdullilah/297861be7309813a8417)
 5. Find at least 3 app errors:
