@@ -21,8 +21,8 @@
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/imageView"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/name"/>
+        android:hint="@string/name"
+        android:inputType="textCapWords"/>
 
     <EditText
         android:id="@+id/job"
@@ -32,8 +32,8 @@
         android:layout_alignStart="@+id/name"
         android:layout_below="@+id/name"
         android:ems="10"
-        android:inputType="textCapWords"
-        android:hint="@string/job"/>
+        android:hint="@string/job"
+        android:inputType="textCapWords"/>
 
     <EditText
         android:id="@+id/salary"
@@ -43,8 +43,8 @@
         android:layout_alignStart="@+id/job"
         android:layout_below="@+id/job"
         android:ems="10"
-        android:inputType="number"
-        android:hint="@string/salary"/>
+        android:hint="@string/salary"
+        android:inputType="numberSigned"/>
 
     <ImageView
         android:id="@+id/imageView"

@@ -1,4 +1,4 @@
-package com.davidmiguel.taxsystem.activities;
+package com.davidmiguel.taxsystem.utils;
 
 import com.davidmiguel.taxsystem.entities.Employee;
 

@@ -12,13 +12,13 @@ public enum TaxCategory {
         this.tax = tax;
     }
 
-    public int getTax(){
+    public int getTax() {
         return this.tax;
     }
 
     @Override
     public String toString() {
-        if(this.tax == 0){
+        if (this.tax == 0) {
             return "Free";
         }
         return this.tax + "%";

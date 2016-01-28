@@ -7,13 +7,14 @@ public class Employee extends SugarRecord {
     private String job;
     private int salary;
     private TaxCategory category;
-    private int tax;
+    private long tax;
 
-    public Employee(){
+    @SuppressWarnings("unused")
+    public Employee() {
         // Default constructor is needed by SugarRecord
     }
 
-    public Employee(String name, String job, int salary, TaxCategory category, int tax) {
+    public Employee(String name, String job, int salary, TaxCategory category, long tax) {
         this.name = name;
         this.job = job;
         this.salary = salary;
@@ -37,7 +38,7 @@ public class Employee extends SugarRecord {
         return category;
     }
 
-    public int getTax() {
+    public long getTax() {
         return tax;
     }
 }

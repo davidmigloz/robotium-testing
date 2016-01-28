@@ -15,17 +15,24 @@ import com.davidmiguel.taxsystem.entities.Employee;
 import com.davidmiguel.taxsystem.entities.TaxCategory;
 
 public class AddEmployee extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Set template
         setContentView(R.layout.activity_add_employee);
+
+        // Set toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        ActionBar ab = getSupportActionBar();
-        assert ab != null;
-        ab.setHomeAsUpIndicator(R.drawable.ic_arrow_back);
-        ab.setDisplayHomeAsUpEnabled(true);
 
+        // Set back button
+        ActionBar ab = getSupportActionBar();
+        if (ab != null) {
+            ab.setHomeAsUpIndicator(R.drawable.ic_arrow_back);
+            ab.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     private void addEmployee() {
@@ -33,57 +40,57 @@ public class AddEmployee extends AppCompatActivity {
         EditText jobInput = (EditText) findViewById(R.id.job);
         EditText salaryInput = (EditText) findViewById(R.id.salary);
 
-        if(!nameInput.getText().toString().trim().equals("") &&
+        if (!nameInput.getText().toString().trim().equals("") &&
                 !jobInput.getText().toString().trim().equals("") &&
-                !salaryInput.getText().toString().trim().equals("")){
+                !salaryInput.getText().toString().trim().equals("")) {
             String name = nameInput.getText().toString();
             String job = jobInput.getText().toString();
             int salary = Integer.parseInt(salaryInput.getText().toString());
             TaxCategory taxCategory = calculateTaxCategory(salary);
-            int tax = calculateTax(salary, taxCategory);
+            long tax = calculateTax(salary, taxCategory);
+
             // Create and save new employee
             new Employee(name, job, salary, taxCategory, tax).save();
+
             // Redirect to main activity
             Toast.makeText(getApplicationContext(),
                     "New employee created!", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, EmployeesList.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
-        } else{
-            Toast.makeText(this, "Please, fill the inputs.", Toast.LENGTH_SHORT);
+        } else {
+            Toast.makeText(this, "Please, fill the inputs.", Toast.LENGTH_SHORT).show();
         }
     }
 
     private TaxCategory calculateTaxCategory(int salary) {
         TaxCategory category;
-        if(salary < 4000) {
+        if (salary < 0) {
+            category = null;
+        } else if (salary < 4000) {
             category = TaxCategory.CAT1;
-        } else if(salary < 5500) {
+        } else if (salary < 5500) {
             category = TaxCategory.CAT2;
-        }else if(salary < 33500){
+        } else if (salary <= 33500) {
             category = TaxCategory.CAT3;
-        }else{
+        } else {
             category = TaxCategory.CAT4;
         }
         return category;
     }
 
-    private int calculateTax(int salary, TaxCategory taxCategory) {
-        return salary + salary * taxCategory.getTax() /100;
+    private long calculateTax(int salary, TaxCategory taxCategory) {
+        return  Math.round(salary * taxCategory.getTax() / 100.0);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.back_done, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();

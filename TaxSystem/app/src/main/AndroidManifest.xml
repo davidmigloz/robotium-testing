@@ -3,6 +3,9 @@
     package="com.davidmiguel.taxsystem"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:name="com.orm.SugarApp"
         android:allowBackup="true"
@@ -36,6 +39,13 @@
         <activity
             android:name=".activities.AddEmployee"
             android:label="@string/add_employee"
+            android:parentActivityName=".activities.EmployeesList"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activities.Help"
+            android:label="@string/help"
+            android:parentActivityName=".activities.EmployeesList"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>

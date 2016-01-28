@@ -1,5 +1,8 @@
-package com.davidmiguel.taxsystem.activities;
+package com.davidmiguel.taxsystem.adapters;
 
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,15 +10,19 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.davidmiguel.taxsystem.R;
+import com.davidmiguel.taxsystem.utils.EmployeeClickListener;
 import com.davidmiguel.taxsystem.entities.Employee;
+import com.davidmiguel.taxsystem.utils.ItemTouchHelperAdapter;
+import com.davidmiguel.taxsystem.utils.ItemTouchHelperViewHolder;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHolder> {
-    private List<Employee> employees = new ArrayList<>();
+public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHolder>
+        implements ItemTouchHelperAdapter {
+    private List<Employee> employees;
     private EmployeeClickListener listener;
 
     public EmployeeAdapter(List<Employee> employees, EmployeeClickListener listener) {
@@ -39,42 +46,45 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
         return employees == null ? 0 : employees.size();
     }
 
-    /**
-     * When a supermarket is removed, delete it from database.
-     */
+    @Override
     public void onItemDismiss(int position) {
         employees.get(position).delete();
         employees.remove(position);
         notifyItemRemoved(position);
     }
 
-    /**
-     * When a supermarket is moved, save position.
-     */
-    public void onItemMove(int fromPosition, int toPosition) {
-        Employee prev = employees.remove(fromPosition);
-        employees.add(toPosition > fromPosition ? toPosition - 1 : toPosition, prev);
+    @Override
+    public boolean onItemMove(int fromPosition, int toPosition) {
+        Collections.swap(employees, fromPosition, toPosition);
         notifyItemMoved(fromPosition, toPosition);
+        return true;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder
+            implements View.OnClickListener , ItemTouchHelperViewHolder {
         private EmployeeClickListener listener;
+        public CardView card;
         private TextView firstLetter;
         private TextView name;
         private TextView job;
         private TextView taxCategory;
-        private TextView tax;
+        private TextView salary;
+        private Drawable background;
 
         public ViewHolder(View itemView, EmployeeClickListener listener) {
             super(itemView);
 
-            this.listener = listener;
-
+            card = (CardView) itemView.findViewById(R.id.card);
             firstLetter = (TextView) itemView.findViewById(R.id.first_letter);
             name = (TextView) itemView.findViewById(R.id.name);
             job = (TextView) itemView.findViewById(R.id.job);
             taxCategory = (TextView) itemView.findViewById(R.id.tax_category);
-            tax = (TextView) itemView.findViewById(R.id.tax);
+            salary = (TextView) itemView.findViewById(R.id.salary);
+
+            background = card.getBackground();
+
+            this.listener = listener;
+            itemView.setOnClickListener(this);
         }
 
         public void bind(Employee employee) {
@@ -83,12 +93,22 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
             job.setText(employee.getJob());
             taxCategory.setText(employee.getCategory().toString());
             NumberFormat nf = new DecimalFormat("#,###,###€");
-            tax.setText(nf.format(employee.getTax()));
+            salary.setText(nf.format(employee.getSalary()));
         }
 
         @Override
         public void onClick(View v) {
             listener.onClick(employees.get(getAdapterPosition()));
+        }
+
+        @Override
+        public void onItemSelected() {
+            card.setBackgroundColor(Color.LTGRAY);
+        }
+
+        @Override
+        public void onItemClear() {
+            card.setBackground(background);
         }
     }
 }
