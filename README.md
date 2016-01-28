@@ -25,7 +25,7 @@ Design a system to work out the tax to be paid by an employee:
 
 ##### Schedule
 
-1. Check the Android Studio, SKD manager and AVD manager.
+1. Check the Android Studio, SDK manager and AVD manager.
 2. Install Robotium Recorder.
 3. Import project: [Tax System](https://github.com/davidmigloz/robotium-testing/releases/download/v1/TaxSystem.zip).
 4. Create following test cases:
