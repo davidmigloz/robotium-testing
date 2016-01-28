@@ -35,6 +35,7 @@ Design a system to work out the tax to be paid by an employee:
   - `AddEmployeeTest` (black-box)
   - `RemoveEmployeeTest` (with Robotium Recorder)
   - `HelpTest` (web view that loads [Help](http://davidmiguel.com/proyectos/robotium/taxsystem/) web site)
+    * [Useful methods for testing web views](https://gist.github.com/Abdullilah/297861be7309813a8417)
 5. Find at least 3 app errors:
   - [x] Error 1
   - [x] Error 2
