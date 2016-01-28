@@ -40,6 +40,11 @@ Design a system to work out the tax to be paid by an employee:
 
 > Tip: create a test `testCalculationTaxes` and use the Boundary-value analysis technique with valid and invalid boundaries.
 
+**Resources:**
+
+- [Tax System Project](https://github.com/davidmigloz/robotium-testing/releases/download/v1/TaxSystem.zip)
+- [Robotium tests template](https://gist.github.com/Abdullilah/65a8d5b323146eab97ce)
+
 ###### Do you need help?
 
 We have created a step-by-step tutorial covering the following topics:
