@@ -15,6 +15,8 @@ An app with some error on which the rest of the group will be working.
 
 ##### App Specification 
 
+![Tax System Screenshot](https://raw.githubusercontent.com/davidmigloz/robotium-testing/master/Presentation/AppTaxSystem.jpg)
+
 Design a system to work out the tax to be paid by an employee:
 - An employee has €4 000 of salary tax free.
 - The next €1 500 is taxed at 10%.
