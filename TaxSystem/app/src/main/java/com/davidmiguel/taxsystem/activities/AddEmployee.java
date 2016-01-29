@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.davidmiguel.taxsystem.R;
 import com.davidmiguel.taxsystem.entities.Employee;
+import com.davidmiguel.taxsystem.entities.SalaryCategory;
 import com.davidmiguel.taxsystem.entities.TaxCategory;
 
 public class AddEmployee extends AppCompatActivity {
@@ -64,23 +65,37 @@ public class AddEmployee extends AppCompatActivity {
     }
 
     private TaxCategory calculateTaxCategory(int salary) {
-        TaxCategory category;
+        TaxCategory category = null;
         if (salary < 0) {
-            category = null;
-        } else if (salary < 4000) {
+            category = null; // 2º error
+        } else if (salary < SalaryCategory.CAT1.getMaxSalary()) {
             category = TaxCategory.CAT1;
-        } else if (salary < 5500) {
+        } else if (salary < SalaryCategory.CAT2.getMaxSalary()) {
             category = TaxCategory.CAT2;
-        } else if (salary <= 33500) {
+        } else if (salary <= SalaryCategory.CAT3.getMaxSalary()) { // 3º error
             category = TaxCategory.CAT3;
-        } else {
+        } else if (salary < SalaryCategory.CAT4.getMaxSalary()) {
             category = TaxCategory.CAT4;
         }
         return category;
     }
 
     private long calculateTax(int salary, TaxCategory taxCategory) {
-        return  Math.round(salary * taxCategory.getTax() / 100.0);
+        long tax = 0;
+        switch (taxCategory) {
+            case CAT4:
+                tax += salary * TaxCategory.CAT4.getTax();
+                salary = 33500;
+            case CAT3:
+                tax += salary * TaxCategory.CAT3.getTax();
+                salary = 5500;
+            case CAT2:
+                tax += salary * TaxCategory.CAT2.getTax();
+                salary = 4000;
+            case CAT1:
+                tax += salary * TaxCategory.CAT1.getTax();
+        }
+        return Math.round(tax);
     }
 
     @Override

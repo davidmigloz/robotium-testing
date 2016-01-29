@@ -12,8 +12,8 @@ public enum TaxCategory {
         this.tax = tax;
     }
 
-    public int getTax() {
-        return this.tax;
+    public double getTax() {
+        return this.tax / 100.0;
     }
 
     @Override
