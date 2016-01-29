@@ -10,7 +10,6 @@ public class AllTests {
         suite.addTest(TestSuite.createTest(AddEmployeeTest.class, "testAddEmployeeBlackBox"));
         suite.addTest(TestSuite.createTest(RemoveEmployeeTest.class, "testRemoveEmployee"));
         suite.addTest(TestSuite.createTest(HelpTest.class, "testHelp"));
-        suite.addTest(TestSuite.createTest(CalculationTaxesTest.class, "testCalculationTaxes"));
         return suite;
     }
 }
