@@ -7,7 +7,7 @@ Robotium is an open-source test framework for writing automatic Gray-Box testing
 Presentation of Robotium and example how to use the tool.
 
 - **[Slides](https://raw.githubusercontent.com/davidmigloz/robotium-testing/master/Presentation/Slides.pdf)**
-- **[Calculator App](https://github.com/davidmigloz/robotium-testing/releases/download/v1/Calculator.zip)**
+- **[Calculator App](https://github.com/davidmigloz/robotium-testing/releases/download/v1/AppCalculator.zip)**
 
 ### 2º Session (28/01/16)
 
@@ -29,7 +29,7 @@ Design a system to work out the tax to be paid by an employee:
   - Lab computers with Android Studio: 20205-20212 (8 computers).
   - SDK path: `C:\software_testing\Android\SDK`.
 2. Install Robotium Recorder.
-3. Import project: [Tax System](https://github.com/davidmigloz/robotium-testing/releases/download/v1/TaxSystem.zip).
+3. Import project: [Tax System](https://github.com/davidmigloz/robotium-testing/releases/download/v1/AppTaxSystem.zip).
 4. Create following test cases:
   - `AddEmployeeTest` (white-box)
     * [Useful methods](https://gist.github.com/davidmigloz/fc865c39db9da14f28d1)
@@ -47,7 +47,7 @@ Design a system to work out the tax to be paid by an employee:
 
 **Resources:**
 
-- [Tax System Project](https://github.com/davidmigloz/robotium-testing/releases/download/v1/TaxSystem.zip)
+- [Tax System Project](https://github.com/davidmigloz/robotium-testing/releases/download/v1/AppTaxSystem.zip)
 - [Robotium tests template](https://gist.github.com/davidmigloz/8dabbdd012fbdb92838f)
 
 ###### Do you need help?
